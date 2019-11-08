@@ -62,4 +62,6 @@ func main() {
 	//var 如果变量值已经存在 类型可以省略 变量会从初始值中获得
 	var cpp, pythonTow, javaTow = true, false, "no !"
 	fmt.Println(ii, jj, cpp, pythonTow, javaTow)
+
+	//学习到的位置 https://tour.go-zh.org/basics/9
 }
