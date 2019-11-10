@@ -4,6 +4,7 @@ import (
 	//导包  导出报名
 	"fmt"
 	"math"
+	"math/cmplx"
 	"math/rand"
 )
 
@@ -39,6 +40,28 @@ var c, python, java bool
 //如果变量值已经存在 则可以省略类型 变量会从初始值中获得类型
 var ii, jj int = 1, 3
 
+//07 短变量的声明
+//在函数中，简洁赋值语句 := 可在类型明确的地方代替 var 声明
+//函数外的每句语句都必须以关键开始 (var, func 等等)，因此 := 结构不能在函数外使用
+var ijk = 23
+
+// ijks := 23
+
+//08 go 的基本类型
+//表示 与或的 boole
+//字符串 string
+//int int8 int16 int32 int64
+//uint uint8 uint16 uint32 uint64 uintptr
+//byte //unit 的别名
+//rune int32的别名 表示一个unicode点
+//float32 float64
+//complex64	complex128
+var (
+	ToBe   bool       = false
+	MaxInt uint64     = 1<<64 - 1
+	z      complex128 = cmplx.Sqrt(-5 + 12i)
+)
+
 func main() {
 	fmt.Println("My favorite is,", rand.Intn(10))
 	fmt.Printf("Now you have %g problems.\n", math.Sqrt(7))
@@ -62,4 +85,15 @@ func main() {
 	//var 如果变量值已经存在 类型可以省略 变量会从初始值中获得
 	var cpp, pythonTow, javaTow = true, false, "no !"
 	fmt.Println(ii, jj, cpp, pythonTow, javaTow)
+
+	// := 简单赋值不能在函数外使用
+	tempVar := 34
+	fmt.Println(ijk, tempVar)
+
+	//基本类型
+	fmt.Printf("Type: %T Value: %v\n", ToBe, ToBe)
+	fmt.Printf("Type: %T Value: %v\n", MaxInt, MaxInt)
+	fmt.Printf("Type: %T Value: %v\n", z, z)
+
+	//https://tour.go-zh.org/basics/11
 }
