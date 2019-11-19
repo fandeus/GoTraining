@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math"
+)
 
 /**
 第二章：流程控制
@@ -22,6 +25,35 @@ import "fmt"
 
 //04. 无限循环
 //如果省略循环条件，该循环就不会结束，因此无限循环可以写得很紧凑
+
+//05. if
+//GO的if语句和for循环类似，表达式外无需小括号（），然而大括号是必须的
+func sqrt(x float64) string {
+	if x < 0 {
+		return sqrt(-x) + "i"
+	}
+	return fmt.Sprint(math.Sqrt(x))
+}
+
+//06. if 的简短语句
+//痛for一样，if语句可以在条件表达式前执行一个简单的语句
+func pow(x, n, lim float64) float64 {
+	if v := math.Pow(x, n); v < lim {
+		return v
+	}
+	return lim
+}
+
+//07. if 和 else
+func powIfElse(x, n, lim float64) float64 {
+	if v := math.Pow(x, n); v < lim {
+		return v
+	} else {
+		fmt.Printf("%g >= %g\n", v, lim)
+	}
+	//这里就不能再使用v了
+	return lim
+}
 
 func main() {
 
@@ -53,5 +85,19 @@ func main() {
 		}
 	*/
 
-	// https://tour.go-zh.org/flowcontrol/4
+	//if
+	fmt.Println(sqrt(2), sqrt(-4))
+	// https://tour.go-zh.org/flowcontrol/6
+
+	fmt.Println(
+		pow(2, 3, 10),
+		pow(2, 3, 20),
+	)
+
+	//if 和 else
+	fmt.Println(
+		powIfElse(3, 2, 10),
+		powIfElse(3, 2, 20),
+	)
+
 }
