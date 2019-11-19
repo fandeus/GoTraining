@@ -87,7 +87,6 @@ func main() {
 
 	//if
 	fmt.Println(sqrt(2), sqrt(-4))
-	// https://tour.go-zh.org/flowcontrol/6
 
 	fmt.Println(
 		pow(2, 3, 10),
@@ -100,4 +99,5 @@ func main() {
 		powIfElse(3, 2, 20),
 	)
 
+	// https://tour.go-zh.org/flowcontrol/8
 }
